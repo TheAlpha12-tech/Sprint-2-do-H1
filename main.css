@@ -96,3 +96,224 @@ body{
         flex: 1;
     padding-bottom: 128px;
     }
+
+.gustavo {
+    display: flex;
+        align-items: center;
+    background-color: #03142e;
+    padding: 48px;
+    color: white;
+}
+
+.gustavo-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.gustavo-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.gustavo-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.gustavo-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.raica {
+    display: flex;
+        align-items: center;
+    padding: 48px;
+    color: white;
+}
+
+.raica-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.raica-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.raica-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.raica-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.ana {
+    display: flex;
+    align-items: center;
+    padding: 48px;
+    color: white;
+    background-color: #03142e;
+}
+
+.ana-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.ana-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.ana-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.ana-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.matheusp {
+    display: flex;
+        align-items: center;
+    padding: 48px;
+    color: white;
+}
+
+.matheusp-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.matheusp-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.matheusp-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.matheusp-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.matheusc {
+    display: flex;
+        align-items: center;
+    padding: 48px;
+    color: white;
+    background-color: #03142e;
+}
+
+.matheusc-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.matheusc-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.matheusc-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.matheusc-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.kauanny {
+    display: flex;
+        align-items: center;
+    padding: 48px;
+    color: white;
+}
+
+.kauanny-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.kauanny-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.kauanny-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.kauanny-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.mariany {
+    display: flex;
+        align-items: center;
+    padding: 48px;
+    color: white;
+    background-color: #03142e;
+}
+
+.mariany-foto {
+    border-radius: 150px;
+    margin-right: 32px;
+}
+
+.mariany-escrito {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Righteous', sans-serif;
+    max-width: 600px;
+    align-items: center;       
+    text-align: center;       
+}
+
+.mariany-escrito-nome {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.mariany-escrito-descricao {
+    font-size: 16px;
+    line-height: 1.6;
+}
