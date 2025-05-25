@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a192f;
+    color:  #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quiz-container {
+    background-color: #102a43;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.quiz-header {
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 119, 182, 0.1);
+    border-bottom: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+.quiz-header h1 {
+    color: #0077b6;
+    margin: 0;
+}
+
+.quiz-content {
+    padding: 30px;
+}
+
+.quiz-screen {
+    transition: all 0.3s ease;
+}
+
+.question-box {
+    background-color: rgba(16, 42, 67, 0.7);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.question-text {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.quiz-button {
+    background-color:  #0077b6;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.quiz-button:hover {
+    background-color:  #00bcd4;
+    transform: translateY(-2px);
+}
+
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: #00bcd4;
+    transition: width 0.3s;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color:  #00bcd4;
+    display: block;
+    text-align: right;
+}
+
+.quiz-footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+.score-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#feedback-message {
+    font-style: italic;
+    margin-top: 10px;
+}
