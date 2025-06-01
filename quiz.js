@@ -145,74 +145,78 @@ const questions = [
 ];
 let currentQuestionIndex = 0;
 let score = 0;
-let userAnswers = [];
+let quizStarted = false;
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
 const resultsScreen = document.getElementById('results-screen');
 const startBtn = document.getElementById('start-btn');
 const nextBtn = document.getElementById('next-btn');
 const restartBtn = document.getElementById('restart-btn');
-const questionText = document.querySelector('.question-text');
-const optionsContainer = document.querySelector('.options-container');
+const questionsContainer = document.getElementById('questions-container');
+const questionCounter = document.getElementById('question-counter');
+const scoreText = document.getElementById('correct-answers');
+const totalQuestions = document.getElementById('total-questions');
+const feedbackText = document.getElementById('feedback-message');
 const progressBar = document.querySelector('.progress-bar');
-const progressText = document.querySelector('.progress-text');
-const correctAnswersEl = document.getElementById('correct-answers');
-const totalQuestionsEl = document.getElementById('total-questions');
-const feedbackMessage = document.getElementById('feedback-message');
 startBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', nextQuestion);
 restartBtn.addEventListener('click', restartQuiz);
 function startQuiz() {
+    quizStarted = true;
     startScreen.style.display = 'none';
     quizScreen.style.display = 'block';
+    currentQuestionIndex = 0;
+    score = 0;
     showQuestion();
 }
+
 function showQuestion() {
+    if (!quizStarted) return;
+    
     const currentQuestion = questions[currentQuestionIndex];
+    questionsContainer.innerHTML = '';
+    const questionBox = document.createElement('div');
+    questionBox.className = 'question-box';
+    const questionText = document.createElement('h2');
+    questionText.className = 'question-text';
     questionText.textContent = currentQuestion.question;
-    optionsContainer.innerHTML = '';
-
+    questionBox.appendChild(questionText);
+    const optionsContainer = document.createElement('div');
+    optionsContainer.className = 'options-container';
     currentQuestion.options.forEach((option, index) => {
-        const optionElement = document.createElement('div');
-        optionElement.classList.add('option');
-        optionElement.textContent = option;
-        optionElement.addEventListener('click', () => selectOption(index));
-        optionsContainer.appendChild(optionElement);
+        const optionBtn = document.createElement('div');
+        optionBtn.className = 'option';
+        optionBtn.textContent = option;
+        
+        optionBtn.addEventListener('click', () => {
+            if (!optionBtn.classList.contains('selected')) {
+                selectOption(index, optionBtn);
+            }
+        });
+        
+        optionsContainer.appendChild(optionBtn);
     });
-
+    
+    questionBox.appendChild(optionsContainer);
+    questionsContainer.appendChild(questionBox);
     updateProgress();
     nextBtn.style.display = 'none';
 }
 
-function updateProgress() {
-    const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
-    progressBar.style.width = `${progress}%`;
-    progressText.textContent = `Pergunta ${currentQuestionIndex + 1}/${questions.length}`;
-}
-
-function selectOption(selectedIndex) {
+function selectOption(selectedIndex, selectedElement) {
     const currentQuestion = questions[currentQuestionIndex];
     const options = document.querySelectorAll('.option');
-
     options.forEach(option => {
-        option.style.pointerEvents = 'none';
+        option.classList.remove('selected', 'correct', 'incorrect');
     });
-
-    options[selectedIndex].classList.add('selected');
-    
+    selectedElement.classList.add('selected');
     if (selectedIndex === currentQuestion.correctAnswer) {
-        options[selectedIndex].classList.add('correct');
+        selectedElement.classList.add('correct');
         score++;
     } else {
-        options[selectedIndex].classList.add('incorrect');
+        selectedElement.classList.add('incorrect');
         options[currentQuestion.correctAnswer].classList.add('correct');
     }
-
-    userAnswers[currentQuestionIndex] = {
-        selected: selectedIndex,
-        isCorrect: selectedIndex === currentQuestion.correctAnswer
-    };
-
     nextBtn.style.display = 'block';
 }
 
@@ -230,33 +234,32 @@ function showResults() {
     quizScreen.style.display = 'none';
     resultsScreen.style.display = 'block';
     
-    correctAnswersEl.textContent = score;
-    totalQuestionsEl.textContent = questions.length;
-    
+    scoreText.textContent = score;
+    totalQuestions.textContent = questions.length;
     const percentage = (score / questions.length) * 100;
-    let feedback = '';
-    
     if (percentage >= 80) {
-        feedback = "Excelente! Você tem um ótimo conhecimento sobre segurança da informação.";
+        feedbackText.textContent = "Excelente! Você é um expert em segurança digital!";
     } else if (percentage >= 60) {
-        feedback = "Bom trabalho! Você tem uma boa base, mas ainda pode aprender mais.";
+        feedbackText.textContent = "Bom trabalho! Você tem um bom conhecimento.";
     } else if (percentage >= 40) {
-        feedback = "Você sabe o básico, mas precisa estudar mais sobre segurança digital.";
+        feedbackText.textContent = "Você sabe o básico, mas pode melhorar!";
     } else {
-        feedback = "Há muito espaço para melhorar. Considere estudar mais sobre segurança da informação.";
+        feedbackText.textContent = "Hora de estudar mais sobre segurança da informação!";
     }
-    
-    feedbackMessage.textContent = feedback;
 }
 
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    userAnswers = [];
-    
     resultsScreen.style.display = 'none';
-    startScreen.style.display = 'block';
+    startQuiz();
+}
+
+function updateProgress() {
+    const progressPercent = ((currentQuestionIndex + 1) / questions.length) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+    questionCounter.textContent = `Pergunta ${currentQuestionIndex + 1}/${questions.length}`;
 }
 document.addEventListener('DOMContentLoaded', () => {
-    totalQuestionsEl.textContent = questions.length;
+    totalQuestions.textContent = questions.length;
 });
