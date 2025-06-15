@@ -35,8 +35,18 @@ body{
     font-weight: 400;
     font-size: 18px;
     color:#fff2e7;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    padding: 8px 16px;
+    border-radius: 6px;
+     display: inline-block;  
 
 }
+ .cabecalho_menu_item:hover {
+    background: #0078d7;
+    color: #fff;
+    transform: scale(1.08);
+ }
+ 
 .conteudo{
     margin-bottom: 48px;
     border-top: 0.48px  solid #fff2e7;

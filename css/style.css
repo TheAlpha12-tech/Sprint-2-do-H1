@@ -98,8 +98,19 @@ form button:hover{
     font-weight: 400;
     font-size: 18px;
     color:#fff2e7;
+     transition: background 0.3s, color 0.3s, transform 0.2s;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;  
 
 }
+
+.cabecalho_menu_item:hover {
+    background: #0078d7;
+    color: #fff;
+    transform: scale(1.08);
+}
+
 .conteudo{
     margin-bottom: 48px;
     border-top: 0.48px  solid #fff2e7;
@@ -112,3 +123,20 @@ header {
     padding: 40px 20px;
     border-bottom: 3px solid #fff2e7
 }
+
+.perfil-foto {
+    transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+}
+.perfil-foto:hover {
+     transform: scale(1.07) rotate(-2deg);
+     box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.perfil-texto {
+     transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+ }
+.perfil-texto:hover {
+     background: #f0f4ff;
+     color: #1a237e;
+     box-shadow: 0 4px 24px rgba(26,35,126,0.08);
+     border-radius: 10px;
+        }
